@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love Message</title>
+    <style>
+        body{
+            background-color: pink;
+        }
+        form {
+        max-width: 400px;
+        margin: 50px auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    label {
+        display: block;
+        margin-bottom: 10px;
+    }
+    input[type='text'],
+    select {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+    }
+    input[type='submit'] {
+        width: 100%;
+        padding: 10px;
+        background-color: #4caf50;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    input[type='submit']:hover {
+        background-color: #45a049;
+    }
+    </style>
+</head>
+<body>
+    <center><h1>Express Your Love</h1></center>
+    <form id="loveForm">
+        <label for="name">Your Name:</label>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="love-level">Level of Love:</label>
+        <select id="love-level" name="love-level" required>
+            <option value="High">High</option>
+            <option value="Medium">Medium</option>
+            <option value="Low">Low</option>
+        </select><br><br>
+
+        <input type="submit" value="Submit">
+    </form>
+
+    <center><div id="loveMessage" style="display: none;">
+        <h2>I Love You</h2>
+        <h1 id="loveStatement"></h1>
+    </div></center>
+
+    <script>
+        document.getElementById('loveForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value;
+            const loveLevel = document.getElementById('love-level').value;
+            const loveStatement = `Dear ${name}, I love you baby.Happy valentine's day!`;
+            document.getElementById('loveStatement').textContent = loveStatement;
+            document.getElementById('loveForm').style.display = 'none';
+            document.getElementById('loveMessage').style.display = 'block';
+        });
+    </script>
+</body>
+</html>
